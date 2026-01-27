@@ -27,7 +27,12 @@ import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
+import net.teamaurorisla.auroramagic.registry.AMAttribute;
 import org.slf4j.Logger;
+
+import net.teamaurorisla.auroramagic.registry.AMItem;
+
+import static net.teamaurorisla.auroramagic.registry.AMItem.EXAMPLE_ITEM;
 
 // The value here should match an entry in the META-INF/mods.toml file
 @Mod(AuroraMagic.MODID)
@@ -49,8 +54,6 @@ public class AuroraMagic {
     // Creates a new BlockItem with the id "auroramagic:example_block", combining the namespace and path
     public static final RegistryObject<Item> EXAMPLE_BLOCK_ITEM = ITEMS.register("example_block", () -> new BlockItem(EXAMPLE_BLOCK.get(), new Item.Properties()));
 
-    // Creates a new food item with the id "auroramagic:example_id", nutrition 1 and saturation 2
-    public static final RegistryObject<Item> EXAMPLE_ITEM = ITEMS.register("example_item", () -> new Item(new Item.Properties().food(new FoodProperties.Builder().alwaysEat().nutrition(1).saturationMod(2f).build())));
 
     // Creates a creative tab with the id "auroramagic:example_tab" for the example item, that is placed after the combat tab
     public static final RegistryObject<CreativeModeTab> EXAMPLE_TAB = CREATIVE_MODE_TABS.register("example_tab", () -> CreativeModeTab.builder().withTabsBefore(CreativeModeTabs.COMBAT).icon(() -> EXAMPLE_ITEM.get().getDefaultInstance()).displayItems((parameters, output) -> {
@@ -62,6 +65,9 @@ public class AuroraMagic {
 
         // Register the commonSetup method for modloading
         modEventBus.addListener(this::commonSetup);
+
+        AMItem.ITEMS.register(modEventBus);
+        AMAttribute.ATTRIBUTE.register(modEventBus);
 
         // Register the Deferred Register to the mod event bus so blocks get registered
         BLOCKS.register(modEventBus);
