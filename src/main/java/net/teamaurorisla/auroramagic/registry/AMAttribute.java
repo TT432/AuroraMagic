@@ -7,7 +7,7 @@ import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import net.teamaurorisla.auroramagic.AuroraMagic;
 
-public class AMAttribute {
+public final class AMAttribute {
     public static final DeferredRegister<Attribute> ATTRIBUTE = DeferredRegister.create(ForgeRegistries.ATTRIBUTES, AuroraMagic.MODID);
 
     //魔导效能
