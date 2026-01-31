@@ -1,0 +1,18 @@
+{
+  "block.auroramagic.arcane_pedestal": "基座",
+  "net.minecraft.world.entity.ai.attributes.RangedAttribute@10939bc1": "炽焰抗性",
+  "net.minecraft.world.entity.ai.attributes.RangedAttribute@11a3ffe6": "磐石亲和",
+  "net.minecraft.world.entity.ai.attributes.RangedAttribute@186b5db": "磐石抗性",
+  "net.minecraft.world.entity.ai.attributes.RangedAttribute@2d739a6f": "神圣亲和",
+  "net.minecraft.world.entity.ai.attributes.RangedAttribute@37711f1a": "法术抗性",
+  "net.minecraft.world.entity.ai.attributes.RangedAttribute@3a19b933": "寒冰抗性",
+  "net.minecraft.world.entity.ai.attributes.RangedAttribute@46ae5a4c": "神圣抗性",
+  "net.minecraft.world.entity.ai.attributes.RangedAttribute@597ae16a": "寒冰亲和",
+  "net.minecraft.world.entity.ai.attributes.RangedAttribute@5d9cd8b7": "雷电亲和",
+  "net.minecraft.world.entity.ai.attributes.RangedAttribute@6226a088": "法术强度",
+  "net.minecraft.world.entity.ai.attributes.RangedAttribute@68321229": "疾风亲和",
+  "net.minecraft.world.entity.ai.attributes.RangedAttribute@7c458ad3": "魔导效能",
+  "net.minecraft.world.entity.ai.attributes.RangedAttribute@c0ef9a8": "疾风抗性",
+  "net.minecraft.world.entity.ai.attributes.RangedAttribute@ccdd8a6": "炽焰亲和",
+  "net.minecraft.world.entity.ai.attributes.RangedAttribute@eb2ce99": "雷电抗性"
+}

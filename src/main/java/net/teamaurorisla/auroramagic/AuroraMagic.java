@@ -28,19 +28,19 @@ public class AuroraMagic {
     public static final String MODID = "auroramagic";
     private static final Logger LOGGER = LogUtils.getLogger();
 
-    public AuroraMagic() {
-        IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
+    public AuroraMagic(FMLJavaModLoadingContext context) {
+        IEventBus modEventBus = context.getModEventBus();
 
         // Register the commonSetup method for modloading
         modEventBus.addListener(this::commonSetup);
 
-        AMItem.ITEM.register(modEventBus);
+        AMItem.REGISTER.init(modEventBus);
         AMAttribute.ATTRIBUTE.register(modEventBus);
         AMEffect.EFFECT.register(modEventBus);
         AMBlock.BLOCK.register(modEventBus);
         AMBlockItem.BLOCK_ITEM.register(modEventBus);
         AMBlockEntity.BLOCK_ENTITY.register(modEventBus);
-        AMCreativeModeTab.CREATIVE_MODE_TAB.register(modEventBus);
+        AMCreativeModeTab.REGISTER.init(modEventBus);
 
         // Register ourselves for server and other game events we are interested in
         MinecraftForge.EVENT_BUS.register(this);

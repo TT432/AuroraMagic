@@ -1,0 +1,18 @@
+{
+  "block.auroramagic.arcane_pedestal": "Arcane Pedestal",
+  "net.minecraft.world.entity.ai.attributes.RangedAttribute@10939bc1": "Blaze Resistance",
+  "net.minecraft.world.entity.ai.attributes.RangedAttribute@11a3ffe6": "Earth Affinity",
+  "net.minecraft.world.entity.ai.attributes.RangedAttribute@186b5db": "Earth Resistance",
+  "net.minecraft.world.entity.ai.attributes.RangedAttribute@2d739a6f": "Divine Affinity",
+  "net.minecraft.world.entity.ai.attributes.RangedAttribute@37711f1a": "Spell Resistance",
+  "net.minecraft.world.entity.ai.attributes.RangedAttribute@3a19b933": "Frost Resistance",
+  "net.minecraft.world.entity.ai.attributes.RangedAttribute@46ae5a4c": "Divine Resistance",
+  "net.minecraft.world.entity.ai.attributes.RangedAttribute@597ae16a": "Frost Affinity",
+  "net.minecraft.world.entity.ai.attributes.RangedAttribute@5d9cd8b7": "Lightning Affinity",
+  "net.minecraft.world.entity.ai.attributes.RangedAttribute@6226a088": "Spell Power",
+  "net.minecraft.world.entity.ai.attributes.RangedAttribute@68321229": "Gale Affinity",
+  "net.minecraft.world.entity.ai.attributes.RangedAttribute@7c458ad3": "Mana Efficiency",
+  "net.minecraft.world.entity.ai.attributes.RangedAttribute@c0ef9a8": "Gale Resistance",
+  "net.minecraft.world.entity.ai.attributes.RangedAttribute@ccdd8a6": "Blaze Affinity",
+  "net.minecraft.world.entity.ai.attributes.RangedAttribute@eb2ce99": "Lightning Resistance"
+}
