@@ -7,6 +7,7 @@ import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.RegistryObject;
 import net.teamaurorisla.auroramagic.AuroraMagic;
 
+import static net.teamaurorisla.auroramagic.registry.AMBlockItem.ARCANE_PEDESTAL_ITEM;
 import static net.teamaurorisla.auroramagic.registry.AMItem.EXAMPLE_ITEM;
 
 public final class AMCreativeModeTab {
@@ -14,5 +15,6 @@ public final class AMCreativeModeTab {
 
     public static final RegistryObject<CreativeModeTab> EXAMPLE_TAB = CREATIVE_MODE_TAB.register("example_tab", () -> CreativeModeTab.builder().withTabsBefore(CreativeModeTabs.COMBAT).icon(() -> EXAMPLE_ITEM.get().getDefaultInstance()).displayItems((parameters, output) -> {
         output.accept(EXAMPLE_ITEM.get());
+        output.accept(ARCANE_PEDESTAL_ITEM.get());
     }).build());
 }

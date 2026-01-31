@@ -13,4 +13,6 @@ public final class AMBlockItem {
     public static final DeferredRegister<Item> BLOCK_ITEM = DeferredRegister.create(ForgeRegistries.ITEMS, AuroraMagic.MODID);
 
     public static final RegistryObject<Item> EXAMPLE_BLOCK_ITEM = BLOCK_ITEM.register("example_block", () -> new BlockItem(EXAMPLE_BLOCK.get(), new Item.Properties()));
+
+    public static final RegistryObject<Item> ARCANE_PEDESTAL_ITEM = BLOCK_ITEM.register("arcane_pedestal", () -> new BlockItem(ARCANE_PEDESTAL.get(), new Item.Properties()));
 }
