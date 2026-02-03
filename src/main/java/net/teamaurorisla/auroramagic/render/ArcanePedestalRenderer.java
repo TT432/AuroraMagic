@@ -1,4 +1,4 @@
-package net.teamaurorisla.auroramagic.client.renderer;
+package net.teamaurorisla.auroramagic.render;
 
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.math.Axis;

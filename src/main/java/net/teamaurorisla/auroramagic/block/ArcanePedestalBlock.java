@@ -65,4 +65,5 @@ public class ArcanePedestalBlock extends Block implements EntityBlock {
     public BlockEntity newBlockEntity(BlockPos pos, BlockState state) {
         return new ArcanePedestalBlockEntity(pos, state);
     }
+
 }
