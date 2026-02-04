@@ -1,0 +1,6 @@
+{
+  "message_id": "auroramagic.damage_type.gale_spell_magical",
+  "scaling": "when_caused_by_living_non_player",
+  "exhaustion": 0.1,
+  "effects": "hurt"
+}

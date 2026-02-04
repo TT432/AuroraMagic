@@ -1,0 +1,11 @@
+{
+  "replace": false,
+  "values": [
+    "auroramagic:blaze_spell_magical",
+    "auroramagic:frost_spell_magical",
+    "auroramagic:earth_spell_magical",
+    "auroramagic:gale_spell_magical",
+    "auroramagic:lightning_spell_magical",
+    "auroramagic:divine_spell_magical"
+  ]
+}

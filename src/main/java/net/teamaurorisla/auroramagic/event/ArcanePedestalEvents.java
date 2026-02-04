@@ -13,7 +13,7 @@ import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.teamaurorisla.auroramagic.AuroraMagic;
 import net.teamaurorisla.auroramagic.block.entity.ArcanePedestalBlockEntity;
-import net.teamaurorisla.auroramagic.render.ArcanePedestalRenderer;
+import net.teamaurorisla.auroramagic.client.renderer.ArcanePedestalRenderer;
 import net.teamaurorisla.auroramagic.registry.AMBlockEntity;
 
 @Mod.EventBusSubscriber(modid = AuroraMagic.MODID, bus = Mod.EventBusSubscriber.Bus.FORGE)

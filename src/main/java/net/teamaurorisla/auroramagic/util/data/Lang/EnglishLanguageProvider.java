@@ -3,9 +3,7 @@ package net.teamaurorisla.auroramagic.util.data.Lang;
 import net.minecraft.data.PackOutput;
 import net.minecraftforge.common.data.LanguageProvider;
 import net.teamaurorisla.auroramagic.AuroraMagic;
-import net.teamaurorisla.auroramagic.registry.AMAttribute;
 import net.teamaurorisla.auroramagic.registry.AMBlock;
-import org.checkerframework.checker.units.qual.A;
 
 public class EnglishLanguageProvider extends LanguageProvider {
 
@@ -17,20 +15,47 @@ public class EnglishLanguageProvider extends LanguageProvider {
     protected void addTranslations() {
         this.add(AMBlock.ARCANE_PEDESTAL.get(), "Arcane Pedestal");
 
-        this.add(String.valueOf(AMAttribute.MANA_EFFICIENCY.get()), "Mana Efficiency");
-        this.add(String.valueOf(AMAttribute.SPELL_POWER.get()), "Spell Power");
-        this.add(String.valueOf(AMAttribute.FROST_AFFINITY.get()), "Frost Affinity");
-        this.add(String.valueOf(AMAttribute.GALE_AFFINITY.get()), "Gale Affinity");
-        this.add(String.valueOf(AMAttribute.BLAZE_AFFINITY.get()), "Blaze Affinity");
-        this.add(String.valueOf(AMAttribute.DIVINE_AFFINITY.get()), "Divine Affinity");
-        this.add(String.valueOf(AMAttribute.EARTH_AFFINITY.get()), "Earth Affinity");
-        this.add(String.valueOf(AMAttribute.LIGHTNING_AFFINITY.get()), "Lightning Affinity");
-        this.add(String.valueOf(AMAttribute.SPELL_RESISTANCE.get()), "Spell Resistance");
-        this.add(String.valueOf(AMAttribute.BLAZE_RESISTANCE.get()), "Blaze Resistance");
-        this.add(String.valueOf(AMAttribute.FROST_RESISTANCE.get()), "Frost Resistance");
-        this.add(String.valueOf(AMAttribute.EARTH_RESISTANCE.get()), "Earth Resistance");
-        this.add(String.valueOf(AMAttribute.GALE_RESISTANCE.get()), "Gale Resistance");
-        this.add(String.valueOf(AMAttribute.LIGHTNING_RESISTANCE.get()), "Lightning Resistance");
-        this.add(String.valueOf(AMAttribute.DIVINE_RESISTANCE.get()), "Divine Resistance");
+
+        this.add("attribute.auroramagic.mana_efficiency", "Mana Efficiency");
+        this.add("attribute.auroramagic.spell_power", "Spell Power");
+        this.add("attribute.auroramagic.frost_affinity", "Frost Affinity");
+        this.add("attribute.auroramagic.gale_affinity", "Gale Affinity");
+        this.add("attribute.auroramagic.blaze_affinity", "Blaze Affinity");
+        this.add("attribute.auroramagic.divine_affinity", "Divine Affinity");
+        this.add("attribute.auroramagic.earth_affinity", "Earth Affinity");
+        this.add("attribute.auroramagic.lightning_affinity", "Lightning Affinity");
+        this.add("attribute.auroramagic.spell_resistance", "Spell Resistance");
+        this.add("attribute.auroramagic.blaze_resistance", "Blaze Resistance");
+        this.add("attribute.auroramagic.frost_resistance", "Frost Resistance");
+        this.add("attribute.auroramagic.earth_resistance", "Earth Resistance");
+        this.add("attribute.auroramagic.gale_resistance", "Gale Resistance");
+        this.add("attribute.auroramagic.lightning_resistance", "Lightning Resistance");
+        this.add("attribute.auroramagic.divine_resistance", "Divine Resistance");
+
+        this.add("death.attack.auroramagic.damage_type.blaze_spell", "%1$s was killed by blaze spell damage");
+        this.add("death.attack.auroramagic.damage_type.blaze_spell.player", "%1$s was killed by %2$s using blaze spell damage");
+        this.add("death.attack.auroramagic.damage_type.blaze_spell_magical", "%1$s was killed by blaze spell magical damage");
+        this.add("death.attack.auroramagic.damage_type.blaze_spell_magical.player", "%1$s was killed by %2$s using blaze spell magical damage");
+        this.add("death.attack.auroramagic.damage_type.frost_spell", "%1$s was killed by frost spell damage");
+        this.add("death.attack.auroramagic.damage_type.frost_spell.player", "%1$s was killed by %2$s using frost spell damage");
+        this.add("death.attack.auroramagic.damage_type.frost_spell_magical", "%1$s was killed by frost spell magical damage");
+        this.add("death.attack.auroramagic.damage_type.frost_spell_magical.player", "%1$s was killed by %2$s using frost spell magical damage");
+        this.add("death.attack.auroramagic.damage_type.earth_spell", "%1$s was killed by earth spell damage");
+        this.add("death.attack.auroramagic.damage_type.earth_spell.player", "%1$s was killed by %2$s using earth spell damage");
+        this.add("death.attack.auroramagic.damage_type.earth_spell_magical", "%1$s was killed by earth spell magical damage");
+        this.add("death.attack.auroramagic.damage_type.earth_spell_magical.player", "%1$s was killed by %2$s using earth spell magical damage");
+        this.add("death.attack.auroramagic.damage_type.gale_spell", "%1$s was killed by gale spell damage");
+        this.add("death.attack.auroramagic.damage_type.gale_spell.player", "%1$s was killed by %2$s using gale spell damage");
+        this.add("death.attack.auroramagic.damage_type.gale_spell_magical", "%1$s was killed by gale spell magical damage");
+        this.add("death.attack.auroramagic.damage_type.gale_spell_magical.player", "%1$s was killed by %2$s using gale spell magical damage");
+        this.add("death.attack.auroramagic.damage_type.lightning_spell", "%1$s was killed by lightning spell damage");
+        this.add("death.attack.auroramagic.damage_type.lightning_spell.player", "%1$s was killed by %2$s using lightning spell damage");
+        this.add("death.attack.auroramagic.damage_type.lightning_spell_magical", "%1$s was killed by lightning spell magical damage");
+        this.add("death.attack.auroramagic.damage_type.lightning_spell_magical.player", "%1$s was killed by %2$s using lightning spell magical damage");
+        this.add("death.attack.auroramagic.damage_type.divine_spell", "%1$s was killed by divine spell damage");
+        this.add("death.attack.auroramagic.damage_type.divine_spell.player", "%1$s was killed by %2$s using divine spell damage");
+        this.add("death.attack.auroramagic.damage_type.divine_spell_magical", "%1$s was killed by divine spell magical damage");
+        this.add("death.attack.auroramagic.damage_type.divine_spell_magical.player", "%1$s was killed by %2$s using divine spell magical damage");
+
     }
 }
