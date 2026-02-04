@@ -1,6 +1,5 @@
 package net.teamaurorisla.auroramagic.util.data;
 
-import net.minecraft.data.PackOutput;
 import net.minecraftforge.data.event.GatherDataEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
@@ -19,7 +18,6 @@ public class DataGen {
 
         Generator.addProvider(event.includeClient(), new EnglishLanguageProvider(PackOutput));
         Generator.addProvider(event.includeServer(), new ChineseLanguageProvider(PackOutput));
-
 
     }
 }
