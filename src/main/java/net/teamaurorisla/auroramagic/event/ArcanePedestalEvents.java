@@ -16,7 +16,7 @@ import net.teamaurorisla.auroramagic.block.entity.ArcanePedestalBlockEntity;
 import net.teamaurorisla.auroramagic.client.renderer.ArcanePedestalRenderer;
 import net.teamaurorisla.auroramagic.registry.AMBlockEntity;
 
-@Mod.EventBusSubscriber(modid = AuroraMagic.MODID, bus = Mod.EventBusSubscriber.Bus.FORGE)
+@Mod.EventBusSubscriber(modid = AuroraMagic.MODID)
 public class ArcanePedestalEvents {
 
     @SubscribeEvent

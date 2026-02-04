@@ -1,4 +1,4 @@
-package net.teamaurorisla.auroramagic.util.data.Lang;
+package net.teamaurorisla.auroramagic.data.lang;
 
 import net.minecraft.data.PackOutput;
 import net.minecraftforge.common.data.LanguageProvider;

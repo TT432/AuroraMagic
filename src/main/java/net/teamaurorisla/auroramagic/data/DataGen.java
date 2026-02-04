@@ -1,11 +1,11 @@
-package net.teamaurorisla.auroramagic.util.data;
+package net.teamaurorisla.auroramagic.data;
 
 import net.minecraftforge.data.event.GatherDataEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.teamaurorisla.auroramagic.AuroraMagic;
-import net.teamaurorisla.auroramagic.util.data.Lang.ChineseLanguageProvider;
-import net.teamaurorisla.auroramagic.util.data.Lang.EnglishLanguageProvider;
+import net.teamaurorisla.auroramagic.data.lang.ChineseLanguageProvider;
+import net.teamaurorisla.auroramagic.data.lang.EnglishLanguageProvider;
 
 @Mod.EventBusSubscriber(modid = AuroraMagic.MODID, bus = Mod.EventBusSubscriber.Bus.MOD)
 public class DataGen {
@@ -20,4 +20,5 @@ public class DataGen {
         Generator.addProvider(event.includeServer(), new ChineseLanguageProvider(PackOutput));
 
     }
+
 }
