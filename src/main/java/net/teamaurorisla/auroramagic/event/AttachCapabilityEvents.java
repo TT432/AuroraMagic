@@ -1,4 +1,4 @@
-package net.teamaurorisla.auroramagic.capability;
+package net.teamaurorisla.auroramagic.event;
 
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.entity.Entity;
@@ -24,7 +24,7 @@ public class AttachCapabilityEvents {
     }
 
     @SubscribeEvent
-    public static void onManaTestEvent(PlayerInteractEvent.RightClickItem event) {
+    public static void onManaTest(PlayerInteractEvent.RightClickItem event) {
         if (event.getItemStack().getItem() == AMItem.EXAMPLE_ITEM.item()) {
             event.getEntity().getCapability(ManaProvider.MANA_CAPABILITY).ifPresent(manaData -> {
                 event.getEntity().sendSystemMessage(Component.literal("" + manaData.getStable()));
