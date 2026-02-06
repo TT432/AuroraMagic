@@ -6,7 +6,9 @@ import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.world.entity.player.Player;
 import net.minecraftforge.client.gui.overlay.ForgeGui;
 import net.minecraftforge.client.gui.overlay.IGuiOverlay;
-import net.teamaurorisla.auroramagic.capability.mana.ManaProvider;
+import net.teamaurorisla.auroramagic.capability.mana.ManaManager;
+
+import net.teamaurorisla.auroramagic.capability.mana.ManaType;
 
 public class ManaDataOverlay implements IGuiOverlay {
 
@@ -16,9 +18,9 @@ public class ManaDataOverlay implements IGuiOverlay {
         Player player = mc.player;
         Font font = mc.font;
         if (player != null) {
-            player.getCapability(ManaProvider.MANA_CAPABILITY).ifPresent(manaData -> {
-                graphics.drawString(font, "" + manaData.getStable(), 0, 0, 1, false);
-            });
+            ManaManager manager = ManaManager.of(player);
+            graphics.drawString(font, manager.get(ManaType.STABLE) + " | " + manager.get(ManaType.MAX_STABLE), 0, 0, 0xEE7942, false);
+            graphics.drawString(font, manager.get(ManaType.SURGE) + " | " + manager.get(ManaType.MAX_SURGE), 0, 20, 0x00FFFF, false);
         }
     }
 

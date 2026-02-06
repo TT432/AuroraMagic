@@ -1,6 +1,5 @@
-package net.teamaurorisla.auroramagic.event;
+package net.teamaurorisla.auroramagic.capability.mana;
 
-import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
@@ -9,12 +8,9 @@ import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.teamaurorisla.auroramagic.AuroraMagic;
-import net.teamaurorisla.auroramagic.capability.mana.ManaProvider;
-import net.teamaurorisla.auroramagic.network.AMNetworkHandler;
-import net.teamaurorisla.auroramagic.network.msg.ManaDataPacket;
 
 @Mod.EventBusSubscriber(modid = AuroraMagic.MODID)
-public class AttachCapabilityEvents {
+public class ManaAttachAndSyncEvents {
 
     @SubscribeEvent
     public static void onAttachMana(AttachCapabilitiesEvent<Entity> event) {
@@ -29,12 +25,10 @@ public class AttachCapabilityEvents {
     public static void onManaTest(PlayerInteractEvent.RightClickItem event) {
         Level level = event.getLevel();
         Player player = event.getEntity();
-        player.getCapability(ManaProvider.MANA_CAPABILITY).ifPresent(manaData -> {
-            if (!level.isClientSide) {
-                manaData.consumeStable(1.0);
-                AMNetworkHandler.sendToPlayerClient(new ManaDataPacket(manaData), (ServerPlayer) player);
-            }
-        });
+        if (!level.isClientSide) {
+            ManaManager manager = ManaManager.of(player);
+            manager.consume(ManaType.STABLE, 1.5, false);
+        }
     }
 
 }

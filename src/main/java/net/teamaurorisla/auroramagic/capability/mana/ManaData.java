@@ -18,8 +18,6 @@ public class ManaData {
         this.isOverloaded = false;
     }
 
-    /**---------------- ↓↓↓ Getter ↓↓↓ ----------------**/
-
     public double getStable() {
         return stable;
     }
@@ -40,16 +38,6 @@ public class ManaData {
         return isOverloaded;
     }
 
-    public double getCurrentMana() {
-        return stable + surge;
-    }
-
-    public double getMaxMana() {
-        return stableMax + surgeMax;
-    }
-
-    /**---------------- ↓↓↓ Setter ↓↓↓ ----------------**/
-
     public ManaData setStable(double mana) {
         this.stable = fix(mana, true);
         return this;
@@ -61,13 +49,13 @@ public class ManaData {
     }
 
     public ManaData setMaxStable(double max) {
-        this.stableMax = max;
+        this.stableMax = Math.max(max, 0.0);
         this.stable = fix(stable, true);
         return this;
     }
 
     public ManaData setMaxSurge(double max) {
-        this.surgeMax = max;
+        this.surgeMax = Math.max(max, 0.0);
         this.surge = fix(surge, false);
         return this;
     }
@@ -77,63 +65,11 @@ public class ManaData {
         return this;
     }
 
-//    public ManaData overload() {
-//        if (isOverloaded()) return this;
-//        else {
-//            this.isOverloaded = true;
-//            return lowerMaxStable(4.0);
-//        }
-//    }
-//
-//    public ManaData unOverload(int tick) {
-//        if (isOverloaded()) {
-//            this.isOverloaded = false;
-//            return upperMaxStable(4.0);
-//        } else return this;
-//    }
-
-    /**---------------- ↓↓↓ Adder ↓↓↓ ----------------**/
-
-    public ManaData addStable(double mana) {
-        return setStable(stable + mana);
-    }
-
-    public ManaData addSurge(double mana) {
-        return setSurge(surge + mana);
-    }
-
-    public ManaData upperMaxStable(double max) {
-        return setMaxStable(stableMax + max);
-    }
-
-    public ManaData upperMaxSurge(double max) {
-        return setMaxSurge(surgeMax + max);
-    }
-
-    /**---------------- ↓↓↓ Subtracter ↓↓↓ ----------------**/
-
-    public ManaData consumeStable(double mana) {
-        return setStable(stable - mana);
-    }
-
-    public ManaData consumeSurge(double mana) {
-        return setSurge(surge - mana);
-    }
-
-    public ManaData lowerMaxStable(double max) {
-        return setMaxStable(stableMax - max);
-    }
-
-    public ManaData lowerMaxSurge(double max) {
-        return setMaxSurge(surgeMax - max);
-    }
-
-    /**---------------- Other Method ----------------**/
-    private double fix(double i, boolean isStableMax) {
-        if (i <= 0.0) {
+    private double fix(double mana, boolean isStableMax) {
+        if (mana <= 0.0) {
             return 0.0; //如果魔力小于等于0，直接取0
         } else {
-            return Math.min(isStableMax ? stableMax : surgeMax, i); //如果魔力大于上限值，取上限
+            return Math.min(isStableMax ? stableMax : surgeMax, mana); //如果魔力大于上限值，取上限值
         }
     }
 
