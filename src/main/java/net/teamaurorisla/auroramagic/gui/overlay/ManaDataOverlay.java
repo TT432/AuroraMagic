@@ -20,7 +20,7 @@ public class ManaDataOverlay implements IGuiOverlay {
         if (player != null) {
             ManaManager manager = ManaManager.of(player);
             graphics.drawString(font, manager.get(ManaType.STABLE) + " | " + manager.get(ManaType.MAX_STABLE), 0, 0, 0xEE7942, false);
-            graphics.drawString(font, manager.get(ManaType.SURGE) + " | " + manager.get(ManaType.MAX_SURGE), 0, 20, 0x00FFFF, false);
+            graphics.drawString(font, manager.get(ManaType.SURGE) + " | " + manager.get(ManaType.MAX_SURGE), 0, 10, 0x00FFFF, false);
         }
     }
 

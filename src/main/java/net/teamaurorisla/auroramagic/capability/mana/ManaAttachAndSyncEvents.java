@@ -2,6 +2,7 @@ package net.teamaurorisla.auroramagic.capability.mana;
 
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.level.Level;
 import net.minecraftforge.event.AttachCapabilitiesEvent;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent;
@@ -27,7 +28,11 @@ public class ManaAttachAndSyncEvents {
         Player player = event.getEntity();
         if (!level.isClientSide) {
             ManaManager manager = ManaManager.of(player);
-            manager.consume(ManaType.STABLE, 1.5, false);
+            if (event.getItemStack().getItem().equals(Items.ACACIA_BOAT)) {
+                manager.consume(ManaType.STABLE, 1.5, false);
+            } else {
+                manager.set(ManaType.STABLE, manager.get(ManaType.MAX_STABLE));
+            }
         }
     }
 
