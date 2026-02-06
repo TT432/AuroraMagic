@@ -3,7 +3,6 @@ package net.teamaurorisla.auroramagic.event;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.item.Items;
 import net.minecraft.world.level.Level;
 import net.minecraftforge.event.AttachCapabilitiesEvent;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent;
@@ -32,9 +31,8 @@ public class AttachCapabilityEvents {
         Player player = event.getEntity();
         player.getCapability(ManaProvider.MANA_CAPABILITY).ifPresent(manaData -> {
             if (!level.isClientSide) {
+                manaData.consumeStable(1.0);
                 AMNetworkHandler.sendToPlayerClient(new ManaDataPacket(manaData), (ServerPlayer) player);
-            } else if (event.getItemStack().getItem().equals(Items.ACACIA_BOAT)) {
-                AMNetworkHandler.sendToServer(new ManaDataPacket(manaData));
             }
         });
     }

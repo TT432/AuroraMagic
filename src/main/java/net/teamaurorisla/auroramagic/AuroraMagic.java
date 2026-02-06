@@ -2,6 +2,8 @@ package net.teamaurorisla.auroramagic;
 
 import com.mojang.logging.LogUtils;
 import net.minecraft.world.entity.EntityType;
+import net.minecraftforge.client.event.RegisterGuiOverlaysEvent;
+import net.minecraftforge.client.gui.overlay.VanillaGuiOverlay;
 import net.minecraftforge.event.entity.EntityAttributeModificationEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.ModLoadingContext;
@@ -9,6 +11,7 @@ import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.config.ModConfig;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
+import net.teamaurorisla.auroramagic.gui.overlay.ManaDataOverlay;
 import net.teamaurorisla.auroramagic.network.AMNetworkHandler;
 import net.teamaurorisla.auroramagic.registry.*;
 import org.slf4j.Logger;
@@ -24,6 +27,7 @@ public class AuroraMagic {
         IEventBus bus = context.getModEventBus();
 
         bus.addListener(this::onFMLCommonSetup);
+        bus.addListener(this::onRegisterGuiOverlays);
         bus.addListener(this::onEntityAttributeModification);
 
         AMItem.REGISTER.init(bus);
@@ -38,8 +42,12 @@ public class AuroraMagic {
         ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, Config.SPEC);
     }
 
-    private void onFMLCommonSetup(final FMLCommonSetupEvent event) {
+    private void onFMLCommonSetup(FMLCommonSetupEvent event) {
         event.enqueueWork(AMNetworkHandler::register);
+    }
+
+    private void onRegisterGuiOverlays(RegisterGuiOverlaysEvent event) {
+        event.registerAbove(VanillaGuiOverlay.HOTBAR.id(), "mana_overlay", new ManaDataOverlay());
     }
 
     private void onEntityAttributeModification(EntityAttributeModificationEvent event) {
