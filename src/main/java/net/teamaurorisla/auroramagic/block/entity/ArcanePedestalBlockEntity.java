@@ -6,8 +6,8 @@ import net.minecraft.network.protocol.game.ClientboundBlockEntityDataPacket;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
-import net.teamaurorisla.auroramagic.util.IItemContainer;
 import net.teamaurorisla.auroramagic.registry.AMBlockEntity;
+import net.teamaurorisla.auroramagic.util.IItemContainer;
 
 public class ArcanePedestalBlockEntity extends BlockEntity implements IItemContainer {
     private ItemStack displayItem = ItemStack.EMPTY;

@@ -2,13 +2,7 @@ package net.teamaurorisla.auroramagic.registry;
 
 import com.dark2932.darklib.item.ItemEntry;
 import com.dark2932.darklib.register.item.FoodRegister;
-import com.dark2932.darklib.register.item.ItemRegister;
-import net.minecraftforge.registries.DeferredRegister;
-import net.minecraftforge.registries.ForgeRegistries;
 import net.teamaurorisla.auroramagic.AuroraMagic;
-import net.minecraft.world.food.FoodProperties;
-import net.minecraft.world.item.Item;
-import net.minecraftforge.registries.RegistryObject;
 
 public final class AMItem {
 

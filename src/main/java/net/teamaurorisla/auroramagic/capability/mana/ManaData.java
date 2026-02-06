@@ -72,20 +72,25 @@ public class ManaData {
         return this;
     }
 
-    public ManaData overload() {
-        if (isOverloaded()) return this;
-        else {
-            this.isOverloaded = true;
-            return lowerMaxStable(4.0);
-        }
+    public ManaData setOverloaded(boolean b) {
+        this.isOverloaded = b;
+        return this;
     }
 
-    public ManaData unOverload() {
-        if (isOverloaded()) {
-            this.isOverloaded = false;
-            return upperMaxStable(4.0);
-        } else return this;
-    }
+//    public ManaData overload() {
+//        if (isOverloaded()) return this;
+//        else {
+//            this.isOverloaded = true;
+//            return lowerMaxStable(4.0);
+//        }
+//    }
+//
+//    public ManaData unOverload(int tick) {
+//        if (isOverloaded()) {
+//            this.isOverloaded = false;
+//            return upperMaxStable(4.0);
+//        } else return this;
+//    }
 
     /**---------------- ↓↓↓ Adder ↓↓↓ ----------------**/
 

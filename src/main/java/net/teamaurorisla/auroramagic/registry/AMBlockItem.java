@@ -7,7 +7,8 @@ import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import net.teamaurorisla.auroramagic.AuroraMagic;
 
-import static net.teamaurorisla.auroramagic.registry.AMBlock.*;
+import static net.teamaurorisla.auroramagic.registry.AMBlock.ARCANE_PEDESTAL;
+import static net.teamaurorisla.auroramagic.registry.AMBlock.EXAMPLE_BLOCK;
 
 public final class AMBlockItem {
     public static final DeferredRegister<Item> BLOCK_ITEM = DeferredRegister.create(ForgeRegistries.ITEMS, AuroraMagic.MODID);
