@@ -1,5 +1,8 @@
 package net.teamaurorisla.auroramagic.capability.mana;
 
+import net.minecraft.ChatFormatting;
+import net.minecraft.network.chat.Component;
+import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Items;
@@ -22,16 +25,33 @@ public class ManaAttachAndSyncEvents {
         }
     }
 
+    //@SubscribeEvent
+
     @SubscribeEvent
     public static void onManaTest(PlayerInteractEvent.RightClickItem event) {
         Level level = event.getLevel();
         Player player = event.getEntity();
         if (!level.isClientSide) {
             ManaManager manager = ManaManager.of(player);
-            if (event.getItemStack().getItem().equals(Items.ACACIA_BOAT)) {
-                manager.consume(ManaType.STABLE, 1.5, false);
+            if (event.getItemStack().getItem().equals(Items.STICK)) {
+                if (manager.getCurrentMana() < 1.5) {
+                    if (!manager.isOverloaded()) {
+                        manager.consume(1.5).setOverloaded(true, 4.0);
+                        player.sendSystemMessage(Component.literal("超载释放魔力！").withStyle(ChatFormatting.YELLOW));
+                        player.playSound(SoundEvents.ENDERMAN_TELEPORT, 1.0f, 0.5f);
+                    } else {
+                        player.sendSystemMessage(Component.literal("你已超载，无法再次超载释放魔力！").withStyle(ChatFormatting.RED));
+                        player.playSound(SoundEvents.VILLAGER_NO);
+                    }
+                } else {
+                    manager.consume(1.5);
+                    player.sendSystemMessage(Component.literal("释放魔力！").withStyle(ChatFormatting.GREEN));
+                    player.playSound(SoundEvents.PLAYER_LEVELUP);
+                }
             } else {
+                if (manager.isOverloaded()) manager.setOverloaded(false, -4.0);
                 manager.set(ManaType.STABLE, manager.get(ManaType.MAX_STABLE));
+                manager.set(ManaType.SURGE, manager.get(ManaType.MAX_SURGE));
             }
         }
     }

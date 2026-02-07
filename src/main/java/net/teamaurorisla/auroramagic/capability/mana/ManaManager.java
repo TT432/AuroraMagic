@@ -11,11 +11,11 @@ import static net.teamaurorisla.auroramagic.capability.mana.ManaType.*;
 public class ManaManager {
 
     private final Player player;
-    private final ManaData manaData;
+    private ManaData manaData;
 
     public ManaManager(@NotNull Player player) {
         this.player = player;
-        this.manaData = player.getCapability(ManaProvider.MANA_CAPABILITY).orElse(null);
+        player.getCapability(ManaProvider.MANA_CAPABILITY).ifPresent(manaData -> this.manaData = manaData);
     }
 
     public ManaData getManaData() {
@@ -54,11 +54,24 @@ public class ManaManager {
         return set(type, (get(type) + value));
     }
 
-    public ManaManager consume(ManaType type, double value, boolean whenNotEnough) {
-        if (get(type) < value) {
-            return whenNotEnough ? set(type, (get(type) - value)).setOverloaded(true) : this;
+    public ManaManager cut(ManaType type, double value) {
+        return set(type, (get(type) - value));
+    }
+
+    public ManaManager consume(double value) {
+        return consume(value, false);
+    }
+
+    public ManaManager consume(double value, boolean isStableFirst) {
+        double stable = get(STABLE);
+        double surge = get(SURGE);
+        double first = isStableFirst ? stable : surge;
+        if (first < value) {
+            if (isStableFirst) return set(STABLE, 0.0).cut(SURGE, value - first);
+            else return set(SURGE, 0.0).cut(STABLE, value - first);
         } else {
-            return set(type, (get(type) - value));
+            if (isStableFirst) return cut(STABLE, value);
+            else return cut(SURGE, value);
         }
     }
 
@@ -66,21 +79,10 @@ public class ManaManager {
         return manaData.isOverloaded();
     }
 
-    public ManaManager setOverloaded(boolean b) {
+    public ManaManager setOverloaded(boolean b, double cutValue) {
         manaData.setOverloaded(b);
-        AMNetworkHandler.sendToPlayerClient(new ManaDataPacket(manaData), (ServerPlayer) player);
-        return this;
+        return cut(MAX_STABLE, cutValue);
     }
-
-//    public ManaManager overload() {
-//        if (isOverloaded()) return this;
-//        else return setOverloaded(true).consume(STABLE, 4.0);
-//    }
-//
-//    public ManaManager unOverload(int tick) {
-//        if (isOverloaded()) return setOverloaded(false).add(MAX_STABLE, 4.0);
-//        else return this;
-//    }
 
     /**---------------- ↓↓↓ Builder ↓↓↓ ----------------**/
     public static ManaManager of(Player player) {
