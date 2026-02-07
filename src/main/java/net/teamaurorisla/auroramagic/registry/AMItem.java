@@ -1,6 +1,6 @@
 package net.teamaurorisla.auroramagic.registry;
 
-import com.dark2932.darklib.item.ItemEntry;
+import com.dark2932.darklib.util.ItemEntry;
 import com.dark2932.darklib.register.item.FoodRegister;
 import net.teamaurorisla.auroramagic.AuroraMagic;
 

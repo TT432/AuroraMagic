@@ -144,7 +144,7 @@ dependencies {
 
     annotationProcessor 'org.spongepowered:mixin:0.8.5:processor'
 
-    implementation fg.deobf("com.dark2932:darklib:dev")
+    implementation fg.deobf("com.dark2932:darklib:20260208")
 
 }
 

@@ -1,5 +1,6 @@
 package net.teamaurorisla.auroramagic.capability.mana;
 
+import com.dark2932.darklib.util.PlayerUtil;
 import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
 import net.minecraft.sounds.SoundEvents;
@@ -38,15 +39,15 @@ public class ManaAttachAndSyncEvents {
                     if (!manager.isOverloaded()) {
                         manager.consume(1.5).setOverloaded(true, 4.0);
                         player.sendSystemMessage(Component.literal("超载释放魔力！").withStyle(ChatFormatting.YELLOW));
-                        player.playSound(SoundEvents.ENDERMAN_TELEPORT, 1.0f, 0.5f);
+                        PlayerUtil.sendSoundPacket(player, SoundEvents.ENDERMAN_TELEPORT, 1.0f, 0.5f);
                     } else {
                         player.sendSystemMessage(Component.literal("你已超载，无法再次超载释放魔力！").withStyle(ChatFormatting.RED));
-                        player.playSound(SoundEvents.VILLAGER_NO);
+                        PlayerUtil.sendSoundPacket(player, SoundEvents.VILLAGER_NO);
                     }
                 } else {
                     manager.consume(1.5);
                     player.sendSystemMessage(Component.literal("释放魔力！").withStyle(ChatFormatting.GREEN));
-                    player.playSound(SoundEvents.PLAYER_LEVELUP);
+                    PlayerUtil.sendSoundPacket(player, SoundEvents.PLAYER_LEVELUP);
                 }
             } else {
                 if (manager.isOverloaded()) manager.setOverloaded(false, -4.0);
