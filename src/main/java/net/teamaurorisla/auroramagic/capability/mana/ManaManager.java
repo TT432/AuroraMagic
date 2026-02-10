@@ -18,10 +18,6 @@ public class ManaManager {
         player.getCapability(ManaProvider.MANA_CAPABILITY).ifPresent(manaData -> this.manaData = manaData);
     }
 
-    public ManaData getManaData() {
-        return manaData;
-    }
-
     public double getCurrentMana() {
         return get(STABLE) + get(SURGE);
     }
@@ -45,9 +41,7 @@ public class ManaManager {
             case SURGE -> manaData.setSurge(value);
             case MAX_STABLE -> manaData.setMaxStable(value);
             case MAX_SURGE -> manaData.setMaxSurge(value);
-        }
-        AMNetworkHandler.sendToPlayerClient(new ManaDataPacket(manaData), (ServerPlayer) player);
-        return this;
+        } return sendToPlayerClient();
     }
 
     public ManaManager add(ManaType type, double value) {
@@ -84,8 +78,21 @@ public class ManaManager {
         return cut(MAX_STABLE, cutValue);
     }
 
-    /**---------------- ↓↓↓ Builder ↓↓↓ ----------------**/
-    public static ManaManager of(Player player) {
+    public ManaData getManaData() {
+        return manaData;
+    }
+
+    public ManaManager setManaData(ManaData newManaData) {
+        manaData.setSelf(newManaData);
+        return sendToPlayerClient();
+    }
+
+    public ManaManager sendToPlayerClient() {
+        AMNetworkHandler.sendToPlayerClient(new ManaDataPacket(manaData), (ServerPlayer) player);
+        return this;
+    }
+
+    public static ManaManager of(@NotNull Player player) {
         return new ManaManager(player);
     }
 

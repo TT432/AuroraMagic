@@ -23,19 +23,16 @@ public class AMNetworkHandler {
         INSTANCE.registerMessage(ID++, ManaDataPacket.class, ManaDataPacket::encode, ManaDataPacket::decode, ManaDataPacket::handle);
     }
 
-    public static <M> M sendToPlayerClient(M msg, ServerPlayer player) {
+    public static <M> void sendToPlayerClient(M msg, ServerPlayer player) {
         INSTANCE.send(PacketDistributor.PLAYER.with(() -> player), msg);
-        return msg;
     }
 
-    public static <M> M sendToAllClient(M msg) {
+    public static <M> void sendToAllClient(M msg) {
         INSTANCE.send(PacketDistributor.ALL.noArg(), msg);
-        return msg;
     }
 
-    public static <M> M sendToServer(M msg) {
+    public static <M> void sendToServer(M msg) {
         INSTANCE.sendToServer(msg);
-        return msg;
     }
 
 }

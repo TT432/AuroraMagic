@@ -12,36 +12,14 @@ import net.teamaurorisla.auroramagic.capability.mana.ManaProvider;
 
 import java.util.function.Supplier;
 
-public class ManaDataPacket {
+public record ManaDataPacket(ManaData manaData) {
 
-    public final double stable;
-    public final double surge;
-    public final double stableMax;
-    public final double surgeMax;
-    public final boolean isOverloaded;
-
-    public ManaDataPacket(ManaData manaData) {
-        this(manaData.getStable(), manaData.getSurge(), manaData.getMaxStable(), manaData.getMaxSurge(), manaData.isOverloaded());
+    public static void encode(ManaDataPacket msg, FriendlyByteBuf buf) {
+        msg.manaData.writeToNetwork(buf);
     }
 
-    public ManaDataPacket(double stable, double surge, double stableMax, double surgeMax, boolean isOverloaded) {
-        this.stable = stable;
-        this.surge = surge;
-        this.stableMax = stableMax;
-        this.surgeMax = surgeMax;
-        this.isOverloaded = isOverloaded;
-    }
-
-    public static void encode(ManaDataPacket msg, FriendlyByteBuf buffer) {
-        buffer.writeDouble(msg.stable);
-        buffer.writeDouble(msg.surge);
-        buffer.writeDouble(msg.stableMax);
-        buffer.writeDouble(msg.surgeMax);
-        buffer.writeBoolean(msg.isOverloaded);
-    }
-
-    public static ManaDataPacket decode(FriendlyByteBuf buffer) {
-        return new ManaDataPacket(buffer.readDouble(), buffer.readDouble(), buffer.readDouble(), buffer.readDouble(), buffer.readBoolean());
+    public static ManaDataPacket decode(FriendlyByteBuf buf) {
+        return new ManaDataPacket(ManaData.readFromNetwork(buf));
     }
 
     public static void handle(ManaDataPacket msg, Supplier<NetworkEvent.Context> sup) {
@@ -63,9 +41,7 @@ class ManaDataClientPacket {
         Player player = Minecraft.getInstance().player;
         NetworkEvent.Context ctx = sup.get();
         if (ctx.getDirection().getReceptionSide().isClient() && player != null) {
-            player.getCapability(ManaProvider.MANA_CAPABILITY).ifPresent(manaData -> {
-                manaData.setStable(msg.stable).setSurge(msg.surge).setMaxStable(msg.stableMax).setMaxSurge(msg.surgeMax).setOverloaded(msg.isOverloaded);
-            });
+            player.getCapability(ManaProvider.MANA_CAPABILITY).ifPresent(manaData -> manaData.setSelf(msg.manaData()));
         }
     }
 

@@ -17,7 +17,7 @@ public class ManaDataOverlay implements IGuiOverlay {
         Minecraft mc = gui.getMinecraft();
         Player player = mc.player;
         Font font = mc.font;
-        if (player != null) {
+        if (player != null && player.isAlive()) {
             ManaManager manager = ManaManager.of(player);
             graphics.drawString(font, manager.get(ManaType.STABLE) + " | " + manager.get(ManaType.MAX_STABLE), 0, 0, 0xEE7942, false);
             graphics.drawString(font, manager.get(ManaType.SURGE) + " | " + manager.get(ManaType.MAX_SURGE), 0, 10, 0x00FFFF, false);

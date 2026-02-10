@@ -1,6 +1,7 @@
 package net.teamaurorisla.auroramagic.capability.mana;
 
 import net.minecraft.nbt.CompoundTag;
+import net.minecraft.network.FriendlyByteBuf;
 
 public class ManaData {
 
@@ -11,11 +12,15 @@ public class ManaData {
     private boolean isOverloaded;
 
     public ManaData() {
-        this.stable = 10.0;
-        this.surge = 10.0;
-        this.stableMax = 10.0;
-        this.surgeMax = 10.0;
-        this.isOverloaded = false;
+        this(10.0, 10.0, 10.0, 10.0, false);
+    }
+
+    public ManaData(double stable, double surge, double stableMax, double surgeMax, boolean isOverloaded) {
+        this.stable = stable;
+        this.surge = surge;
+        this.stableMax = stableMax;
+        this.surgeMax = surgeMax;
+        this.isOverloaded = isOverloaded;
     }
 
     public double getStable() {
@@ -65,12 +70,33 @@ public class ManaData {
         return this;
     }
 
+    public ManaData setSelf(ManaData manaData) {
+        this.stable = manaData.getStable();
+        this.surge = manaData.getSurge();
+        this.stableMax = manaData.getMaxStable();
+        this.surgeMax = manaData.getMaxSurge();
+        this.isOverloaded = manaData.isOverloaded();
+        return this;
+    }
+
     private double fix(double mana, boolean isStableMax) {
         if (mana <= 0.0) {
             return 0.0; //如果魔力小于等于0，直接取0
         } else {
             return Math.min(isStableMax ? stableMax : surgeMax, mana); //如果魔力大于上限值，取上限值
         }
+    }
+
+    public void writeToNetwork(FriendlyByteBuf buf) {
+        buf.writeDouble(stable);
+        buf.writeDouble(surge);
+        buf.writeDouble(stableMax);
+        buf.writeDouble(surgeMax);
+        buf.writeBoolean(isOverloaded);
+    }
+
+    public static ManaData readFromNetwork(FriendlyByteBuf buf) {
+        return new ManaData(buf.readDouble(), buf.readDouble(), buf.readDouble(), buf.readDouble(), buf.readBoolean());
     }
 
     CompoundTag serialize(CompoundTag tag) {
