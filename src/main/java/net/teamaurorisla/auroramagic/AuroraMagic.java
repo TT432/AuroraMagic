@@ -66,6 +66,8 @@ public class AuroraMagic {
         event.add(EntityType.PLAYER, AMAttribute.GALE_RESISTANCE.get());
         event.add(EntityType.PLAYER, AMAttribute.LIGHTNING_RESISTANCE.get());
         event.add(EntityType.PLAYER, AMAttribute.DIVINE_RESISTANCE.get());
+        event.add(EntityType.PLAYER, AMAttribute.MAX_STABLE_MANA.get());
+        event.add(EntityType.PLAYER, AMAttribute.MAX_SURGE_MANA.get());
     }
 
 }

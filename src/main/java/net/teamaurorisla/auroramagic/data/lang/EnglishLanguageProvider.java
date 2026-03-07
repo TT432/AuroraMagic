@@ -31,6 +31,8 @@ public class EnglishLanguageProvider extends LanguageProvider {
         this.add("attribute.auroramagic.gale_resistance", "Gale Resistance");
         this.add("attribute.auroramagic.lightning_resistance", "Lightning Resistance");
         this.add("attribute.auroramagic.divine_resistance", "Divine Resistance");
+        this.add("attribute.auroramagic.max_stable_mana", "Max Stable Mana");
+        this.add("attribute.auroramagic.max_surge_mana", "Max Surge Mana");
 
         this.add("death.attack.auroramagic.damage_type.blaze_spell", "%1$s was killed by blaze spell damage");
         this.add("death.attack.auroramagic.damage_type.blaze_spell.player", "%1$s was killed by %2$s using blaze spell damage");

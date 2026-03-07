@@ -138,4 +138,22 @@ public final class AMAttribute {
             ).setSyncable(true)
     );
 
+    //魔力上限
+    public static final RegistryObject<Attribute> MAX_STABLE_MANA = ATTRIBUTE.register("max_stable_mana",
+            () -> new RangedAttribute(
+                    "attribute.auroramagic.max_stable_mana",
+                    10.0,
+                    0.0,
+                    1024.0
+            ).setSyncable(true)
+    );
+    public static final RegistryObject<Attribute> MAX_SURGE_MANA = ATTRIBUTE.register("max_surge_mana",
+            () -> new RangedAttribute(
+                    "attribute.auroramagic.max_surge_mana",
+                    10.0,
+                    0.0,
+                    1024.0
+            ).setSyncable(true)
+    );
+
 }

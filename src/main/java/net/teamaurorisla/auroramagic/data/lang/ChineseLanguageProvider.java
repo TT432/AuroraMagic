@@ -29,6 +29,8 @@ public class ChineseLanguageProvider extends LanguageProvider {
         this.add("attribute.auroramagic.gale_resistance", "疾风抗性");
         this.add("attribute.auroramagic.lightning_resistance", "雷电抗性");
         this.add("attribute.auroramagic.divine_resistance", "神圣抗性");
+        this.add("attribute.auroramagic.max_stable_mana", "最大稳态魔力");
+        this.add("attribute.auroramagic.max_surge_mana", "最大涌态魔力");
 
         this.add("death.attack.auroramagic.damage_type.blaze_spell", "%1$s 被炽焰法术灼烧了");
         this.add("death.attack.auroramagic.damage_type.blaze_spell.player", "%1$s 在与 %2$s 的战斗中被炽焰法术灼烧了");
