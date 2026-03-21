@@ -73,8 +73,8 @@ public class ManaManager {
         double surge = get(SURGE);
         double first = isStableFirst ? stable : surge;
         if (first < value) {
-            if (isStableFirst) return set(STABLE, 0.0).cut(SURGE, value - first);
-            else return set(SURGE, 0.0).cut(STABLE, value - first);
+            if (isStableFirst) return cut(SURGE, value - first).set(STABLE, 0.0);
+            else return cut(STABLE, value - first).set(SURGE, 0.0);
         } else {
             if (isStableFirst) return cut(STABLE, value);
             else return cut(SURGE, value);
