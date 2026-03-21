@@ -56,15 +56,13 @@ public class AuroraMagic {
         event.add(EntityType.PLAYER, AMAttribute.BLAZE_AFFINITY.get());
         event.add(EntityType.PLAYER, AMAttribute.FROST_AFFINITY.get());
         event.add(EntityType.PLAYER, AMAttribute.EARTH_AFFINITY.get());
-        event.add(EntityType.PLAYER, AMAttribute.GALE_AFFINITY.get());
-        event.add(EntityType.PLAYER, AMAttribute.LIGHTNING_AFFINITY.get());
+        event.add(EntityType.PLAYER, AMAttribute.STORM_AFFINITY.get());
         event.add(EntityType.PLAYER, AMAttribute.DIVINE_AFFINITY.get());
         event.add(EntityType.PLAYER, AMAttribute.SPELL_RESISTANCE.get());
         event.add(EntityType.PLAYER, AMAttribute.BLAZE_RESISTANCE.get());
         event.add(EntityType.PLAYER, AMAttribute.FROST_RESISTANCE.get());
         event.add(EntityType.PLAYER, AMAttribute.EARTH_RESISTANCE.get());
-        event.add(EntityType.PLAYER, AMAttribute.GALE_RESISTANCE.get());
-        event.add(EntityType.PLAYER, AMAttribute.LIGHTNING_RESISTANCE.get());
+        event.add(EntityType.PLAYER, AMAttribute.STORM_RESISTANCE.get());
         event.add(EntityType.PLAYER, AMAttribute.DIVINE_RESISTANCE.get());
         event.add(EntityType.PLAYER, AMAttribute.MAX_STABLE_MANA.get());
         event.add(EntityType.PLAYER, AMAttribute.MAX_SURGE_MANA.get());

@@ -1,6 +1,7 @@
 {
-  "message_id": "auroramagic.damage_type.lightning_spell",
+  "message_id": "auroramagic.damage_type.storm_spell_magical",
   "scaling": "when_caused_by_living_non_player",
   "exhaustion": 0.1,
   "effects": "hurt"
 }
+

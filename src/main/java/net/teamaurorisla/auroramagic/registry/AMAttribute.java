@@ -55,17 +55,9 @@ public final class AMAttribute {
                     1024.0
             ).setSyncable(true)
     );
-    public static final RegistryObject<Attribute> GALE_AFFINITY = ATTRIBUTE.register("gale_affinity",
+    public static final RegistryObject<Attribute> STORM_AFFINITY = ATTRIBUTE.register("storm_affinity",
             () -> new RangedAttribute(
-                    "attribute.auroramagic.gale_affinity",
-                    0.0,
-                    -1024.0,
-                    1024.0
-            ).setSyncable(true)
-    );
-    public static final RegistryObject<Attribute> LIGHTNING_AFFINITY = ATTRIBUTE.register("lightning_affinity",
-            () -> new RangedAttribute(
-                    "attribute.auroramagic.lightning_affinity",
+                    "attribute.auroramagic.storm_affinity",
                     0.0,
                     -1024.0,
                     1024.0
@@ -113,17 +105,9 @@ public final class AMAttribute {
                     1024.0
             ).setSyncable(true)
     );
-    public static final RegistryObject<Attribute> GALE_RESISTANCE = ATTRIBUTE.register("gale_resistance",
+    public static final RegistryObject<Attribute> STORM_RESISTANCE = ATTRIBUTE.register("storm_resistance",
             () -> new RangedAttribute(
-                    "attribute.auroramagic.gale_resistance",
-                    0.0,
-                    -1024.0,
-                    1024.0
-            ).setSyncable(true)
-    );
-    public static final RegistryObject<Attribute> LIGHTNING_RESISTANCE = ATTRIBUTE.register("lightning_resistance",
-            () -> new RangedAttribute(
-                    "attribute.auroramagic.lightning_resistance",
+                    "attribute.auroramagic.storm_resistance",
                     0.0,
                     -1024.0,
                     1024.0

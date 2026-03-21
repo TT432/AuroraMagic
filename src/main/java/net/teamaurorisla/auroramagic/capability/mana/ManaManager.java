@@ -102,9 +102,7 @@ public class ManaManager {
     }
 
     public ManaManager sendToPlayerClient() {
-        if (player instanceof ServerPlayer serverPlayer) {
-            AMNetworkHandler.sendToPlayerClient(new ManaDataPacket(manaData), serverPlayer);
-        }
+        AMNetworkHandler.sendToPlayerClient(new ManaDataPacket(manaData), (ServerPlayer) player);
         return this;
     }
 
